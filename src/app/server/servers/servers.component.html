@@ -1,0 +1,23 @@
+<br>
+<label>Server name</label>
+<!-- <h4>Sem ngModel</h4>
+<input type="text" 
+       class="form-control"
+       (input)="onUpdateServerName($event)">
+<p>{{ serverName }}</p> -->
+
+<!-- <h4>Usando ngModel</h4> -->
+<input type="text" 
+       class="form-control"
+       [(ngModel)]="serverName">
+
+<p>O servidor de ID: {{ getIDServer() }} está {{ statusServer}}</p>
+<p *ngIf="serverCreated">O servidor {{ serverCriado }}</p>
+<button 
+    class="btn btn-primary"
+    [disabled]="!ativarNewServer"
+    (click)="onCreateNewServer()">Add Server</button>
+<!-- <p [innerText]="ativarNewServer"></p> -->
+<br><br>
+<app-server></app-server>
+<app-server></app-server>
