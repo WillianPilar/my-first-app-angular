@@ -7,12 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ServersComponent implements OnInit {
 
-  idServer : number = 10;
+  idServer : number = 0;
   serverStatus : string = "Offline";
   ativarNewServer = false;
   serverCriado = "Nenhum server foi criado."
   serverName;
   serverCreated = false;
+  servers = ["Teste"];
   
   constructor() { 
     setTimeout(() => {
@@ -30,6 +31,8 @@ export class ServersComponent implements OnInit {
   onCreateNewServer(){
     this.serverCriado = this.serverName + " foi criado!";
     this.serverStatus = "Online";
+    this.idServer = this.idServer + 1;
+    this.servers.push(this.serverName);
     this.serverCreated = true;
   }
 

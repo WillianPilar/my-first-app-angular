@@ -10,9 +10,11 @@
 <input type="text" 
        class="form-control"
        [(ngModel)]="serverName">
-
-<p     [ngStyle]="{color : getServerStatusColor()}"
-       [ngClass]="{online : serverStatus === 'Online'}">O servidor de ID: {{ getIDServer() }} está {{ serverStatus}}</p>
+<br>
+<div *ngFor="let server of servers">
+       <p     [ngStyle]="{color : getServerStatusColor()}"
+              [ngClass]="{online : serverStatus === 'Online'}">O servidor de ID: {{ getIDServer() }} está {{ serverStatus}}</p>
+</div>
 <p *ngIf="serverCreated; else noServer">O servidor {{ serverCriado }}</p>
 <ng-template #noServer>
        <p>Nenhum servidor criado!</p>
@@ -23,5 +25,4 @@
     (click)="onCreateNewServer()">Add Server</button>
 <!-- <p [innerText]="ativarNewServer"></p> -->
 <br><br>
-<app-server></app-server>
 <app-server></app-server>
