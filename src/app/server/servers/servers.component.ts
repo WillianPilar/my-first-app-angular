@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class ServersComponent implements OnInit {
 
   idServer : number = 10;
-  statusServer : string = "Offline";
+  serverStatus : string = "Offline";
   ativarNewServer = false;
   serverCriado = "Nenhum server foi criado."
   serverName;
@@ -29,12 +29,16 @@ export class ServersComponent implements OnInit {
 
   onCreateNewServer(){
     this.serverCriado = this.serverName + " foi criado!";
-    this.statusServer = "Online";
+    this.serverStatus = "Online";
     this.serverCreated = true;
   }
 
   onUpdateServerName(event : any){
     console.log(event);
     this.serverName = event.target.value;
+  }
+
+  getServerStatusColor(){
+    return this.serverStatus === "Online" ? "white" : "red";
   }
 }

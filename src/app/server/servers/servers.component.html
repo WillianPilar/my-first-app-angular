@@ -11,8 +11,12 @@
        class="form-control"
        [(ngModel)]="serverName">
 
-<p>O servidor de ID: {{ getIDServer() }} está {{ statusServer}}</p>
-<p *ngIf="serverCreated">O servidor {{ serverCriado }}</p>
+<p     [ngStyle]="{color : getServerStatusColor()}"
+       [ngClass]="{online : serverStatus === 'Online'}">O servidor de ID: {{ getIDServer() }} está {{ serverStatus}}</p>
+<p *ngIf="serverCreated; else noServer">O servidor {{ serverCriado }}</p>
+<ng-template #noServer>
+       <p>Nenhum servidor criado!</p>
+</ng-template>
 <button 
     class="btn btn-primary"
     [disabled]="!ativarNewServer"
